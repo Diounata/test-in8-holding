@@ -1,0 +1,14 @@
+services:
+  postgres:
+    image: bitnami/postgresql:latest
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=test-in8-holding
+    volumes:
+      - test-in8-holding-data:/bitnami/postgresql
+
+volumes:
+  test-in8-holding-data:
