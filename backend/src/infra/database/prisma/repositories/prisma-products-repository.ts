@@ -20,4 +20,8 @@ export class PrismaProductsRepository implements ProductsRepository {
   async getLength(): Promise<number> {
     return await this.prisma.product.count();
   }
+
+  async findProductById(id: string): Promise<Product | null> {
+    return await this.prisma.product.findUnique({ where: { id } });
+  }
 }
