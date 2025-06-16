@@ -30,3 +30,17 @@ model CartItem {
 
   @@map("cart_items")
 }
+
+model Order {
+  id         String   @id @default(uuid())
+  totalPrice String
+  email      String
+  phone      String
+  address    String
+  city       String
+  state      String
+  zipCode    String
+  createdAt  DateTime @default(now())
+
+  @@map("orders")
+}
