@@ -9,5 +9,6 @@ export abstract class CartItemsRepository {
   abstract addItem(item: Omit<CartItem, 'id'>): Promise<null>;
   abstract updateAmount(id: string, amount: number): Promise<null>;
   abstract removeItem(id: string): Promise<null>;
+  abstract findCartItemById(id: string): Promise<CartItem | null>;
   abstract getLength(): Promise<number>;
 }
