@@ -4,13 +4,13 @@ import Link from "next/link";
 
 export default function MobileNavigation() {
   const navItems = [
-    { href: "#", icon: House, label: "Início", active: true },
-    { href: "#", icon: ShoppingCart, label: "Carrinho", active: false },
-    { href: "#", icon: Package, label: "Pedidos", active: false },
+    { href: "/", icon: House, label: "Início", active: true },
+    { href: "/carrinho", icon: ShoppingCart, label: "Carrinho", active: false },
+    { href: "/pedidos", icon: Package, label: "Pedidos", active: false },
   ];
 
   return (
-    <div className="sticky bottom-0 z-50 flex w-full gap-2 border-t border-[#e6e9f4] bg-[#f8f9fc] px-4 pt-2 pb-3">
+    <div className="sticky bottom-0 z-50 flex w-full gap-2 border-t border-[#e6e9f4] bg-[#f8f9fc] px-4 pt-2 pb-3 md:hidden">
       {navItems.map(({ href, icon: Icon, label, active }) => (
         <Link
           key={label}

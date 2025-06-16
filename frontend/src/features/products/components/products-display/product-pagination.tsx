@@ -46,9 +46,13 @@ export function ProductsPagination() {
   };
 
   return (
-    <section className="flex flex-col-reverse items-center justify-center gap-3">
-      <Typography variant="smallText">
-        Página {page} de {pagesTotal}
+    <section className="flex w-full flex-col-reverse items-center justify-center gap-3 sm:flex-row sm:justify-between sm:gap-6">
+      <Typography
+        variant="smallText"
+        className="mt-2 text-sm sm:mt-0 sm:text-base"
+      >
+        Página <span className="font-semibold">{page}</span> de{" "}
+        <span className="font-semibold">{pagesTotal}</span>
       </Typography>
 
       <section className="flex">
@@ -57,8 +61,9 @@ export function ProductsPagination() {
           size="icon"
           onClick={setFirstPage}
           disabled={page <= 1}
+          className="h-8 w-8 sm:h-10 sm:w-10"
         >
-          <ChevronsLeft />
+          <ChevronsLeft className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
 
         <Button
@@ -66,8 +71,9 @@ export function ProductsPagination() {
           size="icon"
           onClick={previousPage}
           disabled={page <= 1}
+          className="h-8 w-8 sm:h-10 sm:w-10"
         >
-          <ChevronLeft />
+          <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
 
         <Button
@@ -75,8 +81,9 @@ export function ProductsPagination() {
           size="icon"
           onClick={nextPage}
           disabled={page >= pagesTotal}
+          className="h-8 w-8 sm:h-10 sm:w-10"
         >
-          <ChevronRight />
+          <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
 
         <Button
@@ -84,8 +91,9 @@ export function ProductsPagination() {
           size="icon"
           onClick={setLastPage}
           disabled={page >= pagesTotal}
+          className="h-8 w-8 sm:h-10 sm:w-10"
         >
-          <ChevronsRight />
+          <ChevronsRight className="h-5 w-5 sm:h-6 sm:w-6" />
         </Button>
       </section>
     </section>

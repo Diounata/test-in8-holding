@@ -1,20 +1,46 @@
 import { ShoppingCart } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Header() {
+  const links = [
+    { href: "/", label: "Início" },
+    { href: "/carrinho", label: "Carrinho" },
+    { href: "/pedidos", label: "Pedidos" },
+  ];
+
   return (
-    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f8f9fc] p-4 pb-2 shadow-md">
+    <header className="items-csenter sticky top-0 z-50 flex w-full justify-between bg-[#f8f9fc] p-4 pb-2 shadow-md md:px-16 md:py-6">
       <section className="flex items-center gap-2">
-        <Image src="/images/logo.png" alt="Shopmart" width={48} height={48} />
-        <h2 className="flex-1 text-center text-lg leading-tight font-bold tracking-[-0.015em] text-[#0d0f1c]">
+        <Image
+          src="/images/logo.png"
+          alt="Shopmart"
+          width={40}
+          height={40}
+          className="h-8 w-8 md:h-12 md:w-12"
+        />
+
+        <h2 className="flex-1 text-lg leading-tight font-bold tracking-[-0.015em] text-[#0d0f1c] md:text-xl">
           Shopmart
         </h2>
+
+        <nav className="ml-4 hidden items-center gap-4 md:flex">
+          {links.map((link) => (
+            <Link
+              key={link.label}
+              href={link.href}
+              className="md:text-md text-base font-semibold text-[#0d0f1c] hover:text-[#0d0f1c]/80"
+            >
+              {link.label}
+            </Link>
+          ))}
+        </nav>
       </section>
 
-      <div className="flex w-12 items-center justify-end">
-        <button className="flex h-12 max-w-[480px] min-w-0 cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-full bg-transparent p-0 text-base leading-normal font-bold tracking-[0.015em] text-[#0d0f1c]">
+      <div className="flex w-10 items-center justify-end md:w-12">
+        <button className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent p-0 text-base font-bold tracking-[0.015em] text-[#0d0f1c] md:h-12 md:w-12">
           <div className="text-[#0d0f1c]">
-            <ShoppingCart />
+            <ShoppingCart size={22} className="md:size-6" />
           </div>
         </button>
       </div>

@@ -16,7 +16,7 @@ export function SearchProductsInput() {
   );
 
   return (
-    <div className="flex grow justify-between gap-2">
+    <div className="flex max-w-[500px] grow justify-between gap-2">
       <label className="flex h-12 w-full flex-col">
         <div className="flex h-full w-full flex-1 items-stretch rounded-lg">
           <div

@@ -17,5 +17,6 @@ export function useListProductsQuery() {
         page,
         query: productNameFilter ? `name=${productNameFilter}` : "",
       }),
+    placeholderData: (prev) => prev,
   });
 }

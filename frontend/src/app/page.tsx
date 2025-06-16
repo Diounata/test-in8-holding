@@ -3,7 +3,7 @@ import { SearchProductsInput } from "@/features/products/components/search-produ
 
 export default function ShopPage() {
   return (
-    <div className="flex flex-col gap-1 px-4 py-4">
+    <div className="flex flex-col gap-1 p-4 md:px-16 md:py-8 xl:px-24 xl:py-12">
       <SearchProductsInput />
       <ProductGrid />
     </div>

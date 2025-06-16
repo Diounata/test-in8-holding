@@ -26,7 +26,7 @@ export function ProductGrid() {
         )}
       </section>
 
-      <section className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3">
+      <section className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 lg:grid-cols-5 lg:gap-10">
         <If
           condition={products.items.length}
           fallback={
