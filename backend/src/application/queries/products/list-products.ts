@@ -19,8 +19,10 @@ export class ListProductsQuery {
   constructor(private productsRepository: ProductsRepository) {}
 
   async handle(input: Input): Promise<Output> {
-    const productsLength = await this.productsRepository.getLength();
     const products = await this.productsRepository.listAll(input.pagination);
+    const productsLength = await this.productsRepository.getLength(
+      input.pagination,
+    );
 
     return right({
       items: products,

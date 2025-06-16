@@ -9,16 +9,36 @@ export class PrismaProductsRepository implements ProductsRepository {
   constructor(private prisma: PrismaService) {}
 
   async listAll(pagination: PaginationInput): Promise<Product[]> {
-    const { page = 1, itemsPerPage = 10 } = pagination;
+    const { page = 1, query, itemsPerPage = 10 } = pagination;
     const skip = (page - 1) * itemsPerPage;
+
+    let where = {};
+    if (query) {
+      const [key, value] = query.split('=');
+      if (key && value !== undefined) {
+        where = { [key]: { contains: value, mode: 'insensitive' } };
+      }
+    }
+
     return await this.prisma.product.findMany({
       skip,
       take: itemsPerPage,
+      where,
     });
   }
 
-  async getLength(): Promise<number> {
-    return await this.prisma.product.count();
+  async getLength(pagination?: PaginationInput): Promise<number> {
+    const { query } = pagination;
+
+    let where = {};
+    if (query) {
+      const [key, value] = query.split('=');
+      if (key && value !== undefined) {
+        where = { [key]: { contains: value, mode: 'insensitive' } };
+      }
+    }
+
+    return await this.prisma.product.count({ where });
   }
 
   async findProductById(id: string): Promise<Product | null> {

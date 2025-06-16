@@ -5,5 +5,5 @@ export abstract class ProductsRepository {
   abstract listAll(pagination: PaginationInput): Promise<Product[]>;
   abstract findProductById(id: string): Promise<Product | void>;
   abstract findProductById(id: string): Promise<Product | void>;
-  abstract getLength(): Promise<number>;
+  abstract getLength(pagination?: PaginationInput): Promise<number>;
 }
