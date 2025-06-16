@@ -6,9 +6,10 @@ export abstract class CartItemsRepository {
   abstract listAll(
     pagination: PaginationInput,
   ): Promise<Array<CartItem & { product: Product }>>;
-  abstract addItem(item: Omit<CartItem, 'id'>): Promise<null>;
-  abstract updateAmount(id: string, amount: number): Promise<null>;
-  abstract removeItem(id: string): Promise<null>;
-  abstract findCartItemById(id: string): Promise<CartItem | null>;
+  abstract addItem(item: Omit<CartItem, 'id'>): Promise<void>;
+  abstract updateAmount(id: string, amount: number): Promise<void>;
+  abstract removeItem(id: string): Promise<void>;
+  abstract cleanItems(): Promise<void>;
+  abstract findCartItemById(id: string): Promise<CartItem | void>;
   abstract getLength(): Promise<number>;
 }

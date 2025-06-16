@@ -15,7 +15,7 @@ model Product {
   category      String
   material      String
   price         String
-  discountPrice String?
+  discountPrice String?    @map("discount_price")
   CartItem      CartItem[]
 
   @@map("products")
@@ -23,7 +23,7 @@ model Product {
 
 model CartItem {
   id        String @id @default(uuid())
-  productId String
+  productId String @map("product_id")
   amount    Int
 
   product Product @relation(fields: [productId], references: [id])
@@ -33,14 +33,14 @@ model CartItem {
 
 model Order {
   id         String   @id @default(uuid())
-  totalPrice String
+  totalPrice String   @map("total_price")
   email      String
   phone      String
   address    String
   city       String
   state      String
-  zipCode    String
-  createdAt  DateTime @default(now())
+  zipCode    String   @map("zip_code")
+  createdAt  DateTime @default(now()) @map("created_at")
 
   @@map("orders")
 }

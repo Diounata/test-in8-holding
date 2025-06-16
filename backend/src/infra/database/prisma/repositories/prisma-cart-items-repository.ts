@@ -23,7 +23,7 @@ export class PrismaCartItemsRepository implements CartItemsRepository {
     });
   }
 
-  async addItem(item: Omit<CartItem, 'id'>): Promise<null> {
+  async addItem(item: Omit<CartItem, 'id'>): Promise<void> {
     const { productId, amount } = item;
     await this.prisma.cartItem.create({
       data: {
@@ -31,19 +31,21 @@ export class PrismaCartItemsRepository implements CartItemsRepository {
         amount,
       },
     });
-    return null;
   }
 
-  async removeItem(id: string): Promise<null> {
+  async removeItem(id: string): Promise<void> {
     await this.prisma.cartItem.delete({
       where: {
         id,
       },
     });
-    return null;
   }
 
-  async updateAmount(id: string, amount: number): Promise<null> {
+  async cleanItems(): Promise<void> {
+    await this.prisma.cartItem.deleteMany();
+  }
+
+  async updateAmount(id: string, amount: number): Promise<void> {
     await this.prisma.cartItem.update({
       where: {
         id,
@@ -52,7 +54,6 @@ export class PrismaCartItemsRepository implements CartItemsRepository {
         amount,
       },
     });
-    return null;
   }
 
   async findCartItemById(id: string): Promise<CartItem | null> {
