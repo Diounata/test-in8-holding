@@ -63,4 +63,22 @@ export class PrismaCartItemsRepository implements CartItemsRepository {
   async getLength(): Promise<number> {
     return await this.prisma.cartItem.count();
   }
+
+  async calculateTotalPrice(): Promise<number> {
+    const cartItems = await this.prisma.cartItem.findMany({
+      include: {
+        product: {
+          select: {
+            price: true,
+          },
+        },
+      },
+    });
+
+    const totalPrice = cartItems.reduce((total, item) => {
+      return total + item.amount * +item.product.price;
+    }, 0);
+
+    return totalPrice;
+  }
 }

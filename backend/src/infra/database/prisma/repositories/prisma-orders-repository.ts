@@ -21,7 +21,7 @@ export class PrismaOrdersRepository implements OrdersRepository {
     }));
   }
 
-  async create(order: Order): Promise<void> {
+  async finish(order: Order): Promise<void> {
     await this.prisma.order.create({
       data: order,
     });

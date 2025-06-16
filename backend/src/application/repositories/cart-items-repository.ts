@@ -12,4 +12,5 @@ export abstract class CartItemsRepository {
   abstract cleanItems(): Promise<void>;
   abstract findCartItemById(id: string): Promise<CartItem | void>;
   abstract getLength(): Promise<number>;
+  abstract calculateTotalPrice(): Promise<number>;
 }
