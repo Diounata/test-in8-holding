@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Typography } from "@/components/ui/typography";
+import { cn } from "@/lib/utils";
 import {
   ChevronLeft,
   ChevronRight,
@@ -46,7 +47,12 @@ export function ProductsPagination() {
   };
 
   return (
-    <section className="flex w-full flex-col-reverse items-center justify-center gap-3 sm:flex-row sm:justify-between sm:gap-6">
+    <section
+      className={cn(
+        "flex w-full flex-col-reverse items-center justify-center gap-3 sm:flex-row sm:justify-between sm:gap-6",
+        pagesTotal >= 0 && "hidden",
+      )}
+    >
       <Typography
         variant="smallText"
         className="mt-2 text-sm sm:mt-0 sm:text-base"

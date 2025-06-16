@@ -10,7 +10,7 @@ export function SearchProductsInput() {
     "pagina",
     parseAsInteger.withDefault(1),
   );
-  const [, setProductNameQuery] = useQueryState(
+  const [productNameQuery, setProductNameQuery] = useQueryState(
     "nome-produto",
     parseAsString.withDefault(""),
   );
@@ -32,6 +32,7 @@ export function SearchProductsInput() {
             ref={searchInputRef}
             placeholder="Buscar produtos por nome"
             className="form-input flex h-full w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-l-none border-l-0 border-none bg-[#e6e9f4] px-4 pl-2 text-base leading-normal font-normal text-[#0d0f1c] placeholder:text-[#47569e] focus:border-none focus:ring-0 focus:outline-0"
+            defaultValue={productNameQuery}
           />
         </div>
       </label>
