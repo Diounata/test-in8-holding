@@ -7,7 +7,7 @@ export abstract class CartItemsRepository {
     pagination: PaginationInput,
   ): Promise<Array<CartItem & { product: Product }>>;
   abstract addItem(item: Omit<CartItem, 'id'>): Promise<void>;
-  abstract updateAmount(id: string, amount: number): Promise<void>;
+  abstract updateAmount(cartItemId: string, amount: number): Promise<void>;
   abstract removeItem(id: string): Promise<void>;
   abstract cleanItems(): Promise<void>;
   abstract findCartItemById(id: string): Promise<CartItem | void>;

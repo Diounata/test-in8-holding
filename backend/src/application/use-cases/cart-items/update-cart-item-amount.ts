@@ -6,7 +6,7 @@ import { Either, left, right } from 'src/core/either';
 import { UseCaseError } from 'src/core/errors/use-case-error';
 
 export interface Input {
-  productId: string;
+  cartItemId: string;
   amount: number;
 }
 
@@ -18,10 +18,10 @@ export class UpdateCartItemAmountUseCase implements UseCase {
 
   async handle(input: Input): Promise<Output> {
     const doesCartItemExist = await this.cartItemsRepository.findCartItemById(
-      input.productId,
+      input.cartItemId,
     );
     if (!doesCartItemExist) return left(new ResourceNotFoundError());
-    await this.cartItemsRepository.updateAmount(input.productId, input.amount);
+    await this.cartItemsRepository.updateAmount(input.cartItemId, input.amount);
     return right(null);
   }
 }

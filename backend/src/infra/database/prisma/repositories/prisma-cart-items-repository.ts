@@ -45,10 +45,10 @@ export class PrismaCartItemsRepository implements CartItemsRepository {
     await this.prisma.cartItem.deleteMany();
   }
 
-  async updateAmount(id: string, amount: number): Promise<void> {
+  async updateAmount(cartItemId: string, amount: number): Promise<void> {
     await this.prisma.cartItem.update({
       where: {
-        id,
+        id: cartItemId,
       },
       data: {
         amount,

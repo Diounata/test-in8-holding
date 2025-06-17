@@ -15,14 +15,14 @@ export class UpdateCartItemAmountController {
     private updateCartItemAmountUseCase: UpdateCartItemAmountUseCase,
   ) {}
 
-  @Patch('/amount/:productId')
+  @Patch('/amount/:cartItemId')
   async handle(
     @Body(new ZodValidationPipe(updateCartItemAmountSchema))
     { amount }: UpdateCartItemAmountSchema,
-    @Param('productId') productId: string,
+    @Param('cartItemId') cartItemId: string,
   ) {
     const result = await this.updateCartItemAmountUseCase.handle({
-      productId,
+      cartItemId,
       amount,
     });
 
