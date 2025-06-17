@@ -49,7 +49,7 @@ export function ProductsPagination() {
   return (
     <section
       className={cn(
-        "flex w-full flex-col-reverse items-center justify-center gap-3 sm:flex-row sm:justify-between sm:gap-6",
+        "flex w-full flex-col-reverse items-center justify-center gap-1 sm:flex-col-reverse sm:justify-center sm:gap-3",
         pagesTotal <= 0 && "hidden",
       )}
     >
