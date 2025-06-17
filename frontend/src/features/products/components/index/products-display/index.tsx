@@ -2,7 +2,7 @@
 import { If } from "@/components/if";
 import { LoaderCircle } from "lucide-react";
 import { useQueryState } from "nuqs";
-import { useListProductsQuery } from "../../hooks/react-query/use-list-products-query";
+import { useListProductsQuery } from "../../../hooks/react-query/use-list-products-query";
 import { ProductCard } from "./product-card";
 import { ProductsPagination } from "./product-pagination";
 
@@ -34,7 +34,7 @@ export function ProductGrid() {
           </div>
         }
       >
-        <section className="grid grid-cols-[repeat(auto-fit,minmax(158px,1fr))] gap-3 lg:grid-cols-5 lg:gap-10">
+        <section className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3 lg:grid-cols-3 lg:gap-8 xl:grid-cols-5">
           <If
             condition={products?.items.length}
             fallback={

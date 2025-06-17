@@ -15,4 +15,9 @@ export class ProductsApi {
     );
     return response.data;
   }
+
+  static async getProduct({ productId }: { productId: string }) {
+    const response = await axiosClient.get<Product>("/products/" + productId);
+    return response.data;
+  }
 }

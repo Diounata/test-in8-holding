@@ -1,4 +1,4 @@
-import { ShoppingCart } from "lucide-react";
+import { CartButton } from "@/features/cart-items/components/cart-button";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -38,11 +38,7 @@ export default function Header() {
       </section>
 
       <div className="flex w-10 items-center justify-end md:w-12">
-        <button className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent p-0 text-base font-bold tracking-[0.015em] text-[#0d0f1c] md:h-12 md:w-12">
-          <div className="text-[#0d0f1c]">
-            <ShoppingCart size={22} className="md:size-6" />
-          </div>
-        </button>
+        <CartButton />
       </div>
     </header>
   );

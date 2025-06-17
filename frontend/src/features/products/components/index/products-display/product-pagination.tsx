@@ -9,7 +9,7 @@ import {
 } from "lucide-react";
 import { parseAsInteger, useQueryState } from "nuqs";
 import { useEffect } from "react";
-import { useListProductsQuery } from "../../hooks/react-query/use-list-products-query";
+import { useListProductsQuery } from "../../../hooks/react-query/use-list-products-query";
 
 export function ProductsPagination() {
   const listProductsQuery = useListProductsQuery();
@@ -50,7 +50,7 @@ export function ProductsPagination() {
     <section
       className={cn(
         "flex w-full flex-col-reverse items-center justify-center gap-3 sm:flex-row sm:justify-between sm:gap-6",
-        pagesTotal >= 0 && "hidden",
+        pagesTotal <= 0 && "hidden",
       )}
     >
       <Typography
