@@ -4,11 +4,16 @@ import { useAddCartItemHandler } from "@/features/cart-items/hooks/handlers/use-
 import { ProductAmountSelector } from "./product-amount-selector";
 
 export function AddToCart() {
-  const { addCartItemHandler } = useAddCartItemHandler();
+  const { addCartItemHandler, amount, handleIncrease, handleDecrease } =
+    useAddCartItemHandler();
 
   return (
     <div className="flex flex-col md:flex-row md:items-center md:gap-4">
-      <ProductAmountSelector />
+      <ProductAmountSelector
+        amount={amount}
+        handleIncrease={handleIncrease}
+        handleDecrease={handleDecrease}
+      />
 
       <div className="mb-5 flex px-4 py-3 md:mb-0 md:flex-1 md:p-0">
         <Button

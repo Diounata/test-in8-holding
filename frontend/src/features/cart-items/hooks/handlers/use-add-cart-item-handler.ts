@@ -6,9 +6,18 @@ import { useAddCartItemMutation } from "../react-query/use-add-cart-item-mutatio
 
 export function useAddCartItemHandler() {
   const { productId } = useParams<{ productId: string }>();
-  const { amount } = useAddProductToCartStore();
+  const { amount, actions: addProductToCartStoreActions } =
+    useAddProductToCartStore();
   const addCartItemMutation = useAddCartItemMutation();
   const router = useRouter();
+
+  const handleDecrease = () => {
+    addProductToCartStoreActions.setAmount(amount > 1 ? amount - 1 : 1);
+  };
+
+  const handleIncrease = () => {
+    addProductToCartStoreActions.setAmount(amount + 1);
+  };
 
   const addCartItemHandler = async () => {
     try {
@@ -25,5 +34,5 @@ export function useAddCartItemHandler() {
     }
   };
 
-  return { addCartItemHandler };
+  return { addCartItemHandler, amount, handleIncrease, handleDecrease };
 }

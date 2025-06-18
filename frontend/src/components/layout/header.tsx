@@ -10,7 +10,7 @@ export default function Header() {
   ];
 
   return (
-    <header className="items-csenter sticky top-0 z-50 flex w-full justify-between bg-[#f8f9fc] p-4 pb-2 shadow-md md:px-16 md:py-6">
+    <header className="sticky top-0 z-50 flex w-full items-center justify-between bg-[#f8f9fc] p-4 pb-2 shadow-md md:px-16 md:py-6">
       <section className="flex items-center gap-2">
         <Image
           src="/images/logo.png"

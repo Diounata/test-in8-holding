@@ -1,6 +1,6 @@
 "use client";
 import { If } from "@/components/if";
-import { LoaderCircle } from "lucide-react";
+import { Loading } from "@/components/ui/loading";
 import { useQueryState } from "nuqs";
 import { useListProductsQuery } from "../../../hooks/react-query/use-list-products-query";
 import { ProductCard } from "./product-card";
@@ -27,12 +27,7 @@ export function ProductGrid() {
 
       <If
         condition={products?.items}
-        fallback={
-          <div className="flex items-center gap-2">
-            <LoaderCircle className="animate-spin" size={24} /> Buscando
-            produtos
-          </div>
-        }
+        fallback={<Loading label="Buscando dados..." />}
       >
         <section className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-3 lg:grid-cols-3 lg:gap-8 xl:grid-cols-5">
           <If

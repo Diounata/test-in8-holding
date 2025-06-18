@@ -28,7 +28,7 @@ export default function RootLayout({
             <div className="group/design-root relative flex size-full min-h-screen flex-col justify-between bg-[#f8f9fc]">
               <Header />
 
-              <div className="flex-grow overflow-x-hidden px-4 py-3">
+              <div className="flex flex-grow flex-col overflow-x-hidden px-4 py-3">
                 {children}
               </div>
 
