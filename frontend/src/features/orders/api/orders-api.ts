@@ -1,8 +1,8 @@
-import { Order } from "@/features/checkout/types/order";
+import { Order } from "@/features/orders/types/order";
 import { axiosClient } from "@/lib/axios/axios-client";
 import { PaginationOutput } from "@/lib/axios/types/pagination-data";
 
-export class CheckoutsApi {
+export class OrdersApi {
   static async listAll({ page = 1, query }: { page?: number; query?: string }) {
     const response = await axiosClient.get<PaginationOutput<Order>>("/orders", {
       params: {
@@ -10,11 +10,6 @@ export class CheckoutsApi {
         query,
       },
     });
-    return response.data;
-  }
-
-  static async getOrder({ orderId }: { orderId: string }) {
-    const response = await axiosClient.get<Order>("/orders/" + orderId);
     return response.data;
   }
 
