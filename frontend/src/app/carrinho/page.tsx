@@ -26,15 +26,18 @@ export default function CartPage() {
   return (
     <Container>
       <CartSummary />
+      
       <div className="h-full w-full">
         <h3 className="pt-4 text-lg leading-tight font-bold tracking-[-0.015em] text-[#0d0f1c] md:pt-2 md:text-xl">
           Produtos
         </h3>
+
         {cartItems.items.map((item) => (
           <ShoppingCartItem item={item} key={item.id} />
         ))}
         <CartItemsPagination />
       </div>
+
       <CheckoutButton />
     </Container>
   );
