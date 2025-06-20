@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:mobile/features/cart/pages/index.dart';
+import 'package:mobile/features/orders/pages/index.dart';
 import 'package:mobile/features/products/pages/index.dart';
 import 'package:mobile/widgets/layout/appbar.dart';
 
@@ -19,7 +20,7 @@ class _TabsNavigationWidgetState extends ConsumerState<TabsNavigationWidget> {
   final List<Widget> pages = const [
     HomePage(),
     CartPage(),
-    Center(child: Text('Pedidos')),
+    OrdersPage(),
   ];
 
   @override

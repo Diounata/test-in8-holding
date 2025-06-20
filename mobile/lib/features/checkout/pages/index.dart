@@ -5,6 +5,7 @@ import 'package:mobile/features/checkout/widgets/inputs/submit_button.dart';
 import 'package:mobile/features/orders/repositories/orders_repository.dart';
 import 'package:mobile/features/orders/repositories/models/finish_order.dart';
 import 'package:mobile/widgets/layout/appbar.dart';
+import 'package:mobile/widgets/layout/tabs_navigation.dart';
 
 class CheckoutPage extends StatefulWidget {
   const CheckoutPage({super.key});
@@ -45,6 +46,13 @@ class _CheckoutPageState extends State<CheckoutPage> {
             style: TextStyle(
               color: Colors.white,
             ),
+          ),
+        ),
+      );
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const TabsNavigationWidget(
+            currentIndex: 2,
           ),
         ),
       );

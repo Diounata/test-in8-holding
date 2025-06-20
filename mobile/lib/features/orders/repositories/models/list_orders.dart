@@ -7,13 +7,13 @@ class ListOrdersRequestParams {
 
   ListOrdersRequestParams({
     this.page,
-    this.itemsPerPage,
+    this.itemsPerPage = 5,
     this.name,
   });
 
   Map<String, dynamic> toJson() => {
         if (page != null) 'page': page.toString(),
-        if (itemsPerPage != null) 'itemsPerPage': itemsPerPage.toString(),
+        if (itemsPerPage != null) 'itemsPerPage': 5.toString(),
         if (name != null && name!.isNotEmpty) 'query': 'name=$name',
       };
 }
