@@ -52,18 +52,18 @@ git clone https://github.com/Diounata/test-in8-holding
 cd test-in8-holding/backend
 ```
 
-2. Copie o arquivo `.env.example` para `.env` e ajuste as variáveis de ambiente conforme necessário.
-
-3. Suba os containers do Docker:
+2. Suba os containers do Docker:
 
 ```bash
 docker compose up -d
 ```
 
+3. Copie o arquivo `.env.example` para `.env` e ajuste as variáveis de ambiente conforme necessário.
+
 4. Instale as dependências do projeto:
 
 ```bash
-npm install
+npm install --legacy-peer-deps
 ```
 
 5. Rode as migrações do Prisma para criar o banco de dados e fazer o seed inicial com dados das APIs disponiblizadas no documento do teste técnico:
