@@ -14,6 +14,9 @@ export class PrismaOrdersRepository implements OrdersRepository {
     const orders = await this.prisma.order.findMany({
       skip,
       take: itemsPerPage,
+      orderBy: {
+        createdAt: 'desc',
+      },
     });
     return orders.map((order) => ({
       ...order,
