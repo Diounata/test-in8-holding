@@ -9,7 +9,7 @@ interface Props {
 
 export default async function ProductPage({ params }: Props) {
   const product = await ProductsApi.getProduct({
-    productId: params.productId,
+    productId: await params.productId,
   });
 
   return (
