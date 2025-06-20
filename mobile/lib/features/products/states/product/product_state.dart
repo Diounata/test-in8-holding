@@ -82,23 +82,19 @@ class ProductNotifier extends StateNotifier<ProductState> {
 
       if (!context.mounted) return;
 
-      showDialog(
-        context: context,
-        builder: (_) => AlertDialog(
-          title: const Text('Adição de produto'),
-          content:
-              const Text('O produto foi adicionado ao carrinho com sucesso!'),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => const TabsNavigationWidget(),
-                ),
-              ),
-              child: const Text('OK'),
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          backgroundColor: Colors.blue,
+          content: Text(
+            'Produto adicionado ao carrinho!',
+            style: TextStyle(
+              color: Colors.white,
             ),
-          ],
+          ),
         ),
+      );
+      Navigator.of(context).pushReplacement(
+        MaterialPageRoute(builder: (context) => const TabsNavigationWidget()),
       );
     } catch (e) {
       state = state.copyWith(error: e.toString(), isLoading: false);

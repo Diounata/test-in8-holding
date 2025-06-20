@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/features/checkout/pages/index.dart';
 
 class FinishOrderButton extends StatelessWidget {
   const FinishOrderButton({super.key});
@@ -13,9 +14,15 @@ class FinishOrderButton extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushReplacement(
+                    MaterialPageRoute(
+                      builder: (context) => const CheckoutPage(),
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: const Color(0xFF607afb),
+                  backgroundColor: Colors.blue,
                   foregroundColor: const Color(0xFFf8f9fc),
                   minimumSize: const Size(double.infinity, 48),
                   shape: RoundedRectangleBorder(
