@@ -1,22 +1,32 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:mobile/features/cart/pages/index.dart';
 import 'package:mobile/features/products/pages/index.dart';
 import 'package:mobile/widgets/layout/appbar.dart';
 
-class TabsNavigationWidget extends StatefulWidget {
-  const TabsNavigationWidget({super.key});
+class TabsNavigationWidget extends ConsumerStatefulWidget {
+  final int currentIndex;
+  const TabsNavigationWidget({super.key, this.currentIndex = 0});
 
   @override
-  State<TabsNavigationWidget> createState() => _TabsNavigationWidgetState();
+  ConsumerState<TabsNavigationWidget> createState() =>
+      _TabsNavigationWidgetState();
 }
 
-class _TabsNavigationWidgetState extends State<TabsNavigationWidget> {
-  int currentIndex = 0;
+class _TabsNavigationWidgetState extends ConsumerState<TabsNavigationWidget> {
+  late int currentIndex;
 
-  List<Widget> pages = [
-    const HomePage(),
-    const Center(child: Text('Carrinho')),
-    const Center(child: Text('Pedidos')),
+  final List<Widget> pages = const [
+    HomePage(),
+    CartPage(),
+    Center(child: Text('Pedidos')),
   ];
+
+  @override
+  void initState() {
+    super.initState();
+    currentIndex = widget.currentIndex;
+  }
 
   @override
   Widget build(BuildContext context) {

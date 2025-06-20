@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mobile/features/cart/widgets/cart_button.dart';
 import 'package:mobile/widgets/layout/tabs_navigation.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
@@ -52,50 +53,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
               const Expanded(
                 child: SizedBox(),
               ),
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const TabsNavigationWidget()),
-                      );
-                    },
-                    icon: const Icon(
-                      Icons.shopping_cart_outlined,
-                      color: Colors.black,
-                      size: 24,
-                    ),
-                  ),
-                  Positioned(
-                    top: 4,
-                    right: 5,
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 4,
-                        vertical: 1,
-                      ),
-                      decoration: BoxDecoration(
-                        color: Colors.blue,
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      constraints: const BoxConstraints(
-                        minWidth: 20,
-                      ),
-                      child: const Text(
-                        '+9',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+              const CartButton(),
             ],
           ),
         ),

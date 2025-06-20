@@ -15,7 +15,8 @@ class ProductAmountSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+      padding: const EdgeInsets.symmetric(vertical: 12.0),
+      margin: const EdgeInsets.only(left: 8),
       decoration: BoxDecoration(
         color: const Color(0xFFf8f9fc),
         borderRadius: BorderRadius.circular(8.0),
@@ -43,7 +44,7 @@ class ProductAmountSelector extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 8.0),
+          const SizedBox(width: 2.0),
           SizedBox(
             width: 40,
             child: Text(
@@ -56,7 +57,7 @@ class ProductAmountSelector extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(width: 8.0),
+          const SizedBox(width: 2.0),
           InkWell(
             onTap: incrementAmount,
             child: Container(
