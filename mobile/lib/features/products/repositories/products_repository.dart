@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:http/http.dart' as http;
+import 'package:mobile/features/products/repositories/models/product.dart';
 import 'models/list_products.dart';
 
 class ProductsRepository {
@@ -13,5 +14,14 @@ class ProductsRepository {
       return ListProductsResponse.fromJson(jsonDecode(response.body));
     }
     throw Exception('Erro ao listar produtos');
+  }
+
+  Future<Product> getProduct({required String productId}) async {
+    final uri = Uri.parse('$baseUrl/$productId');
+    final response = await http.get(uri);
+    if (response.statusCode == 200) {
+      return Product.fromJson(jsonDecode(response.body));
+    }
+    throw Exception('Erro ao obter produto');
   }
 }

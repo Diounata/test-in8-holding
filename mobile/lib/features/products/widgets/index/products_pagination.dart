@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile/features/products/states/products_state_provider.dart';
-import 'package:mobile/widgets/pagination.dart';
+import 'package:mobile/features/products/states/index/products_state_provider.dart';
+import 'package:mobile/widgets/ui/pagination.dart';
 
 class ProductsPagination extends ConsumerWidget {
   const ProductsPagination({super.key});

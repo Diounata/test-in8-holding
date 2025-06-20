@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:mobile/features/products/pages/index.dart';
+import 'package:mobile/widgets/layout/tabs_navigation.dart';
 
 void main() {
   runApp(
@@ -15,10 +15,9 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'Inter'),
-      home: const HomePage(),
+      home: TabsNavigationWidget(),
     );
   }
 }

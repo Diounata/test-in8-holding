@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile/features/products/pages/index.dart';
+import 'package:mobile/widgets/layout/tabs_navigation.dart';
 
 class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
   const AppBarWidget({super.key});
@@ -18,20 +18,39 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: Row(
             children: [
-              Image.asset('assets/images/logo.png', height: 32),
-              const SizedBox(width: 16),
+              GestureDetector(
+                  onTap: () {
+                    if (ModalRoute.of(context)?.settings.name == '/home') {
+                      return;
+                    }
+                    Navigator.of(context).pushReplacement(
+                      MaterialPageRoute(
+                        builder: (context) => const TabsNavigationWidget(),
+                      ),
+                    );
+                  },
+                  child: Row(
+                    children: [
+                      Image.asset(
+                        'assets/images/logo.png',
+                        height: 32,
+                      ),
+                      const SizedBox(width: 16),
+                      const Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Shopmart',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      )
+                    ],
+                  )),
               const Expanded(
-                child: Align(
-                  alignment: Alignment.centerLeft,
-                  child: Text(
-                    'Shopmart',
-                    style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                ),
+                child: SizedBox(),
               ),
               Stack(
                 alignment: Alignment.center,
@@ -40,7 +59,7 @@ class AppBarWidget extends StatelessWidget implements PreferredSizeWidget {
                     onPressed: () {
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                            builder: (context) => const HomePage()),
+                            builder: (context) => const TabsNavigationWidget()),
                       );
                     },
                     icon: const Icon(
