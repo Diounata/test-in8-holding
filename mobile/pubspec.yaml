@@ -9,6 +9,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_native_splash: ^2.3.7
   flutter_riverpod: ^2.4.10
   http: ^1.1.0
   intl: ^0.19.0
@@ -22,4 +23,13 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/
-    - assets/icons/
+
+flutter_native_splash:
+  color: "#ffffff"
+  image: assets/images/splash.png
+  android_12:
+    image: assets/images/splash.png
+    icon_background_color: "#ffffff"
+  android: true
+  ios: true
+  web: false
